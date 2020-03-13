@@ -1,0 +1,5 @@
+Pickup.wav
+dead.wav
+nyam.wav
+game.mp3
+menu.mp3
