@@ -41,7 +41,7 @@ Game::Game()
 {
     atmos.Load_sounds("Bubi_Sounds/sound_list.txt");
     atmos.Volume_atmos(20);
-        atmos.Volume_bip(128);
+        atmos.Volume_bip(100);
 
 // glfw: initialize and configure
     // ------------------------------
@@ -161,11 +161,27 @@ case 2:
 case 3:
     Read_grid("map3.txt",grid);
     break;
+    case 4:
+    Read_grid("map4.txt",grid);
+    break;
+    case 5:
+    Read_grid("map5.txt",grid);
+    break;
+    case 6:
+    Read_grid("map6.txt",grid);
+    break;
+    case 7:
+    Read_grid("map7.txt",grid);
+    break;
 default:
-    Read_grid("nogrid.txt",grid);
+    //Read_grid("nogrid.txt",grid);
     break;
 }
-
+if(grid.size()!=29)
+{
+    levelid = 1;
+    return 1;
+}
 
 
 
@@ -209,11 +225,12 @@ for(int i=0; i<29; i++){
     scriptstop=false;
     script = new std::thread(scriptfv,this);
 
-    int end_code=-1;
+    int end_code=1;
 
     /// /////////////////////////////////////////////////////
 
 atmos.Bubi_change_atmos("game");
+
     while (!glfwWindowShouldClose(window) && gameplay)//main
     {
         CalculateDelta();
@@ -270,6 +287,7 @@ atmos.Bubi_change_atmos("game");
             exit->Draw();
             if(exit->is_colide_with(player))
             {
+                atmos.Bubibip("nyam");
                 end_code=2;
                 //iswin=true;
                 gameplay=false;
@@ -590,10 +608,12 @@ void Game::framebuffer_size_callback(GLFWwindow* window, int width, int height)
 void Game::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
+        gameplay=false;
+        //glfwSetWindowShouldClose(window, true);
     //zeroing direction
     player_direction = glm::vec2(0.0,0.0);
     //geting direction
+if(mygame->player!=nullptr){
 
     if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS )
     {
@@ -616,7 +636,7 @@ void Game::key_callback(GLFWwindow* window, int key, int scancode, int action, i
         mygame->player->rotation=0;
     }
 
-
+}
 
 
 

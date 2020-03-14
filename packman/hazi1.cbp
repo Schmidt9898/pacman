@@ -46,6 +46,8 @@
 			<Add directory="sdl/lib" />
 			<Add directory="Bubi_Sounds/mixer/lib" />
 		</Linker>
+		<Unit filename="Bubi_Sounds/Bubi_Sound.cpp" />
+		<Unit filename="Bubi_Sounds/Bubi_Sound.h" />
 		<Unit filename="Drawable.h" />
 		<Unit filename="Pen.h" />
 		<Unit filename="Vertices.h" />

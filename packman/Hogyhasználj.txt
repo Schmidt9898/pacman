@@ -1,0 +1,23 @@
+note:hazi1 mappa jelen esetben a pacman mappa
+
+bin/debug mappában lévő exe-t kell futtatni a hazi1 mappában.
+Ezt úgy éred el, hogy egy parancsikon teszel az exe-re és indítási helynek a hazi1 mappát adod meg vagy csak kimozgatod az exe-t a hazi1 mappába.
+A játékban nincsenek feliratok csak szinek.
+A menüben van két téglalap, a kék az editor, a zöld a játék folytatása.
+A játékban meg kell enni minden sárga bogyót és nem meghalni.
+wasd a mozgás.
+Az editor indításakor az ablak megáll és a konzolba be kell írni a betölteni kívánt pálya fájlát,
+ha újat szeretnénk készíteni akkor érvénytelen neveket adjunk meg,
+mint pl "asd".
+a világos kocka a fal amin nem lehet átmenni a sötéten át lehet menni. 
+A játékos mozgatható a wasd gombokkal.
+Bal egérgomb töröl, jobb egérgomb hozzáad falakat.
+R gomb minden falat beépít, T gomb minden falat töröl.
+NINCS visszavonás!!!!
+M gomb menti
+Ha megynyomod akkor megint megáll az ablak és a konzolba be kell írni a nevét.
+Ha szeretnél vele játszani olyan nevet adj neki mint 
+"map1.txt" egészen map7.txt ig lehet neki nevet adni.
+
+Jótanács olyan mappot építs ahol minden bejárható és nincs elzárt része ahova a player nem tud bemenni
+valamint a 4 sarkot és a kijáratot hagyd tisztán.
