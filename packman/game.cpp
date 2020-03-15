@@ -1,37 +1,24 @@
 #include "game.h"
 #include<sstream>
-float random(float a,float b);
-glm::vec2 to_vector(unsigned int x_,unsigned int y_);
-void Write_grid(string filename,vector<vector<bool>> &grid);
-void Read_grid(string filename,vector<vector<bool>> &grid);
+float random(float a,float b);//random generátor a-b között 1000 felbontással
+glm::vec2 to_vector(unsigned int x_,unsigned int y_);//converter képernyõ -> játéktér
+void Write_grid(string filename,vector<vector<bool>> &grid);//map kiíró és
+void Read_grid(string filename,vector<vector<bool>> &grid);//map beolvasó
 //globals
-int sceen;
-double lastframe,currentframe,DELTA;
-glm::vec2 player_direction;
+int sceen;//aktuális jelenet / menu, játék, editor
+double lastframe,currentframe,DELTA;//Delta számításhoz
+glm::vec2 player_direction;//merre megy a játékos , gomblenyomásból számítva
 
-Game* mygame;
+Game* mygame;// mutató a játékra static függvényekhez
 
-bool scriptstop=false;
-bool gameplay=true;
-bool iswin = false;
-bool show_exit = false;
+bool scriptstop=false;//aktuális script megáljon e //végül nem ezzel lett megoldva de ne vegyük ki
+bool gameplay=true;//aktuális sceen eddig fut
+bool iswin = false;//végül sehol nem használt de ne vegyük ki
+bool show_exit = false;//végül sehol nem használt de ne vegyük ki
 
 bool r_btn_down=false;
 bool l_btn_down=false;
-//bool selected=false;
 
-struct selectable
-{
-    Drawable *d;
-    bool selected=false;
-    //selectable(Drawable *d_):d(d_){};
-};
-
-glm::vec2 new_dots[2];
-int dot_counter=0;
-
-selectable exit_seleter;
-std::vector<selectable> new_walls;
 
 
 
@@ -52,7 +39,7 @@ Game::Game()
 
     // glfw window creation
     // --------------------
-    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Game", nullptr, nullptr);
+    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Pacman2020", nullptr, nullptr);
     if (window == nullptr)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -115,13 +102,14 @@ void Game::loop()
 int Game::playsceen()
 {
     std::cout<<"gamesceen\n";
+    pont=0;
     if(player!=nullptr)
         delete player;
     if(exit!=nullptr)
         delete exit;
 
     player = new Rectangle(-0.5,0,0.1,0.1,playerpen);
-    player->setColor(0,0.5,1);
+    player->setColor(1,1,0.2);
     exit = new Rectangle(0,0,0.15,0.15,rect);
     exit->setColor(0.1,1,0.1);
     iswin=false;
@@ -235,7 +223,7 @@ atmos.Bubi_change_atmos("game");
     {
         CalculateDelta();
 
-        glClearColor(0, 0, 0, 1.0f);
+        glClearColor(0.1, 0.1, 0.1, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         CalculatePlayerMove();
@@ -414,8 +402,8 @@ gameplay = true;
 
 
     std::cout<<"editorceen\n";
-    player = new Rectangle(-0.5,0,0.1,0.1,rect);
-    player->setColor(0,0.5,1);
+    player = new Rectangle(-0.5,0,0.1,0.1,playerpen);
+    player->setColor(1,1,0.2);
 
     exit = new Rectangle(0,0,0.15,0.15,rect);
     exit->setColor(0.1,1,0.1);
@@ -613,6 +601,10 @@ void Game::key_callback(GLFWwindow* window, int key, int scancode, int action, i
     //zeroing direction
     player_direction = glm::vec2(0.0,0.0);
     //geting direction
+    if(glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS )
+    {
+        mygame->levelid++;
+    }
 if(mygame->player!=nullptr){
 
     if(glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS )
@@ -708,7 +700,7 @@ if(scriptstop || scriptid!=gameid)
         return;
     monitor.lock();
     Enemies.push_back(new Ghost(-1,1,0.1,0.1,playerpen));
-    Enemies[Enemies.size()-1]->setColor(1,0.2,0.1);
+    Enemies[Enemies.size()-1]->setColor(1,0,1);
     monitor.unlock();
 
       std::this_thread::sleep_for(chrono::milliseconds(500));
@@ -716,7 +708,7 @@ if(scriptstop || scriptid!=gameid)
         return;
     monitor.lock();
     Enemies.push_back(new Ghost(1,-1,0.1,0.1,playerpen));
-    Enemies[Enemies.size()-1]->setColor(1,0.2,0.1);
+    Enemies[Enemies.size()-1]->setColor(0,1,1);
     monitor.unlock();
 /*
       std::this_thread::sleep_for(chrono::milliseconds(500));

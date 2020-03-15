@@ -4,7 +4,10 @@
 #include "shader.h"
 #include "Vertices.h"
 
-
+/*
+Ez az osztály kezeli a shader programot és a open gl kirajzolásához szükséges  műveleteket.
+Mindent alakzatot háromszögekként értelmez így bármilyen ponthalmazból tud rajzolni.
+*/
 
 
 struct Pen
@@ -30,7 +33,7 @@ public:
                std::string vertexfile,
                std::string fragmentfile,
                std::string verfile,
-               std::string indfile)
+               std::string indfile)//kezeli az adatok videómemóriába másolását
     {
         this->name=name;
         shader = new Shader(vertexfile.c_str(),fragmentfile.c_str());
@@ -43,19 +46,19 @@ public:
 
         glGenVertexArrays(1,&VAO);
         glGenBuffers(1,&EBO);
-        glGenBuffers(1,&VBO);///l�trehoz
+        glGenBuffers(1,&VBO);///létrehoz
         glBindVertexArray(VAO);
-        glBindBuffer(GL_ARRAY_BUFFER,VBO);///�sszek�t? csak 1 lehet egyszerre
+        glBindBuffer(GL_ARRAY_BUFFER,VBO);///összeköt? csak 1 lehet egyszerre
 
-        glBufferData(GL_ARRAY_BUFFER,ver.getsize(),ver.getvertices(),GL_STATIC_DRAW);///�tm�sol elk�ld
+        glBufferData(GL_ARRAY_BUFFER,ver.getsize(),ver.getvertices(),GL_STATIC_DRAW);///átmásol elküld
 
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);///�sszek�t? csak 1 lehet egyszerre
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);///összeköt? csak 1 lehet egyszerre
 
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER,ver.getindsize(),ver.getindices(),GL_STATIC_DRAW);///�tm�sol elk�ld
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER,ver.getindsize(),ver.getindices(),GL_STATIC_DRAW);///átmásol elküld
 
         indiciessize = ver.getind_db();
         //std::cout<<indiciessize<<"\n";
-        //pointerez�s  // nincsenek szinek
+        //pointerezés  // nincsenek szinek
         glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,3*sizeof(float),(void*)0);/// megmondja honnan olvassa
 
         glEnableVertexAttribArray(0);
@@ -64,12 +67,12 @@ public:
 
         glBindVertexArray(0);
 
-        ///testing deleting + vertices
+        /// deleting + vertices már nincs rá szükség
         glDeleteBuffers(1,&VBO);
         glDeleteBuffers(1,&EBO);
         std::cout<<"Pen "<<name<<" Loaded.\n";
     }
-    void Draw(glm::mat4 trans,glm::vec3 color)
+    void Draw(glm::mat4 trans,glm::vec3 color)//Rajzoláshoz elég a traszformáció mátrixa és a szín
     {
 
             shader->use();
@@ -85,7 +88,9 @@ public:
 
 
 
-
+/*
+ha több pent akarunnk definiálni akár dinamikusan is akkor ezzel lehet név ként lementeni és castolni.
+*/
 
 
 struct PenFactory {

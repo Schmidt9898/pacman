@@ -5,8 +5,8 @@
 class VerticeObject
 {
 
-    std::vector<float> vertices;
-    std::vector<unsigned int> indices;
+    std::vector<float> vertices;//pontok kordinátái
+    std::vector<unsigned int> indices;//háromszögek indexei
 
 
 public:

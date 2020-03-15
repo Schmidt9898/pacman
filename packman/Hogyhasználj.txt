@@ -1,5 +1,3 @@
-note:hazi1 mappa jelen esetben a pacman mappa
-
 bin/debug mappában lévő exe-t kell futtatni a hazi1 mappában.
 Ezt úgy éred el, hogy egy parancsikon teszel az exe-re és indítási helynek a hazi1 mappát adod meg vagy csak kimozgatod az exe-t a hazi1 mappába.
 A játékban nincsenek feliratok csak szinek.

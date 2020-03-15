@@ -20,12 +20,13 @@
 
 class Game{
 
-Bubi_Sound atmos;
+Bubi_Sound atmos; // Saját hang könyvtár haladó c++ projektbõl
+//Már nem emlékszem hogy mûködik.
 //float screenscale=1;
 
-GLFWwindow* window;
+GLFWwindow* window; // az ablak
 
-//Pens
+//Pens // toll gyûjtemény
 Pen* tri;
 Pen* rect;
 Pen* playerpen;
@@ -36,19 +37,24 @@ Pen* playerpen;
 //float x=0,y=0;
 
 //entities
+//több helyen is kell ezért nem lehet localis
 Rectangle* player=nullptr;
 Rectangle* exit=nullptr;
 int pont=0;
-vector<Ghost*> Enemies;
-vector<Rectangle*> Walls;
-vector<Rectangle*> Food;
+
+vector<Ghost*> Enemies;//szellemek
+vector<Rectangle*> Walls;//falak
+vector<Rectangle*> Food;//felvehetõ pontok
 //vector<Drawable*>
 ///scripting
+/*
+egyszerû scriptelés külön szálon, szálbiztos
+*/
 std::thread *script=nullptr;
 std::mutex monitor;
 
 
-void PEN_Init()
+void PEN_Init()//tollak betöltése a memóriába és a videókártyára
 {
 tri = new Pen("triangle","files/triangle.vs","files/triangle.fs","files/triangle.txt","none");
 rect = new Pen("rectangle","files/rectangle.vs","files/rectangle.fs","files/rectangle.txt","files/rectangle.ind");
@@ -56,7 +62,7 @@ playerpen = new Pen("player","files/player.vs","files/player.fs","files/player.t
 }
 
 
-//callbacks
+//callbacks az órai
 static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
@@ -66,24 +72,24 @@ static void mouse_button_callback(GLFWwindow* window, int button, int action, in
 int menusceen();//1
 int playsceen();//2
 int editorsceen();//3
-int load1();
+//int load1();//nem használtam
 
 //delta
-void CalculateDelta();
+void CalculateDelta(); // legutóbbi képkocka után eltelt idõ
 //player movement
-void CalculatePlayerMove();
+void CalculatePlayerMove(); // player mozgás számítása lenyomott billentyûkbõl
 //
 
 
 
 
-void scriptfv();
+void scriptfv();//script függvény
 
 public:
 Game();//init
 void loop();//loop
-int gameid=0;
-int levelid=1;
+int gameid=0;//ahoz hogy a scripp ne befolyásolja az új játékot ha meghalunk és még a script élne
+int levelid=1;// szintlépéshez 7 szint van a játékban
 
 
 const unsigned int SCR_WIDTH = 600;

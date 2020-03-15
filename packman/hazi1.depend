@@ -1717,7 +1717,7 @@
 	<inttypes.h>
 	<stdint.h>
 
-1584118566 source:d:\programozas\small_prog\c++\grafika\hazi1\main.cpp
+1584289618 source:d:\programozas\small_prog\c++\grafika\hazi1\main.cpp
 	"game.h"
 
 1579479197 d:\programozas\small_prog\c++\grafika\hazi1\include\glfw\glfw3.h
@@ -2394,7 +2394,7 @@
 
 1578255577 d:\programozas\small_prog\c++\grafika\hazi1\include\glm\simd\integer.h
 
-1583333214 d:\programozas\small_prog\c++\grafika\hazi1\vertices.h
+1584274326 d:\programozas\small_prog\c++\grafika\hazi1\vertices.h
 	<vector>
 
 1578255577 d:\programozas\small_prog\c++\grafika\hazi1\include\glm\gtc\matrix_transform.hpp
@@ -2644,7 +2644,7 @@
 1578255577 d:\programozas\small_prog\c++\grafika\hazi1\include\glm\gtc\type_ptr.inl
 	<cstring>
 
-1584118073 d:\programozas\small_prog\c++\grafika\hazi1\drawable.h
+1584289455 d:\programozas\small_prog\c++\grafika\hazi1\drawable.h
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<glm/gtc/type_ptr.hpp>
@@ -2656,12 +2656,12 @@
 	"Vertices.h"
 	"shader.h"
 
-1583673012 d:\programozas\small_prog\c++\grafika\hazi1\pen.h
+1584276611 d:\programozas\small_prog\c++\grafika\hazi1\pen.h
 	<string>
 	"shader.h"
 	"Vertices.h"
 
-1584118133 d:\programozas\small_prog\c++\grafika\hazi1\game.h
+1584290670 d:\programozas\small_prog\c++\grafika\hazi1\game.h
 	<glad/glad.h>
 	<GLFW/glfw3.h>
 	<math.h>
@@ -2675,7 +2675,7 @@
 	<time.h>
 	"Bubi_Sound.h"
 
-1584175554 source:d:\programozas\small_prog\c++\grafika\hazi1\game.cpp
+1584290279 source:d:\programozas\small_prog\c++\grafika\hazi1\game.cpp
 	"game.h"
 	<sstream>
 
