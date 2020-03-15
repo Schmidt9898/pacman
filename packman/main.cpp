@@ -1,4 +1,7 @@
-
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
 
 #define SDL_MAIN_HANDLED //sdl lib miatt
 
@@ -11,6 +14,11 @@ int main() {
 
     return 0;
 }
-
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
+//segédlet elolvasása a kezeléshez külön txt ben
 
 

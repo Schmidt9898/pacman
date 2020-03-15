@@ -19,3 +19,5 @@ Ha szeretnél vele játszani olyan nevet adj neki mint
 
 Jótanács olyan mappot építs ahol minden bejárható és nincs elzárt része ahova a player nem tud bemenni
 valamint a 4 sarkot és a kijáratot hagyd tisztán.
+
+glhf 

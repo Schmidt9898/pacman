@@ -1717,7 +1717,7 @@
 	<inttypes.h>
 	<stdint.h>
 
-1584289618 source:d:\programozas\small_prog\c++\grafika\hazi1\main.cpp
+1584293599 source:d:\programozas\small_prog\c++\grafika\hazi1\main.cpp
 	"game.h"
 
 1579479197 d:\programozas\small_prog\c++\grafika\hazi1\include\glfw\glfw3.h
@@ -2675,7 +2675,7 @@
 	<time.h>
 	"Bubi_Sound.h"
 
-1584290279 source:d:\programozas\small_prog\c++\grafika\hazi1\game.cpp
+1584294580 source:d:\programozas\small_prog\c++\grafika\hazi1\game.cpp
 	"game.h"
 	<sstream>
 
