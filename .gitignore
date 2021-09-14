@@ -1,0 +1,10 @@
+*.exe
+packman/lib-mingw/*
+packman/bin/*
+packman/obj/*
+*.lnk
+packman/sdl/*
+packman/include/*
+*.dll
+packman/glad.c
+packman/hazi1.*
