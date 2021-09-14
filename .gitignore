@@ -13,3 +13,4 @@ packman/hazi1.*
 *.la
 *.pc
 packman/Bubi_Sounds/mixer/include/SDL2/SDL_mixer.h
+*.mp3
