@@ -8,3 +8,8 @@ packman/include/*
 *.dll
 packman/glad.c
 packman/hazi1.*
+*.wav
+*.a
+*.la
+*.pc
+packman/Bubi_Sounds/mixer/include/SDL2/SDL_mixer.h
